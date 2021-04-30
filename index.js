@@ -1,5 +1,6 @@
 const wrapper = document.createElement("div");
 const header = document.createElement("h1");
+const reset = document.createElement("button");
 const sketch = document.createElement("div");
 const footer = document.createElement("footer");
 const footer_span = document.createElement("span");
@@ -9,11 +10,12 @@ const footer_text = document.createTextNode(" - Create by ");
 const appendBody = (appendItemToSketch) => {
   //add element to body
   header.textContent = "Etch-a-Sketch";
+  reset.innerText = 'Reset'
   footer_span.textContent = new Date().toLocaleDateString().slice(-4);
   footer_author.href = "//github.com/shisunlel";
   footer_author.innerText = "Shisun";
   footer.append(footer_span, footer_text, footer_author);
-  wrapper.append(header, sketch, footer);
+  wrapper.append(header, reset, sketch, footer);
   wrapper.className = "wrapper";
   sketch.className = "sketch";
   appendItemToSketch();
@@ -47,3 +49,12 @@ sketchItem.forEach((e) => {
     });
   });
 });
+
+reset.onclick = () => {
+    sketchItem.forEach(e => {
+        if(e.classList.length > 1){
+            e.classList.remove('item_too')
+        }
+        sketch.style.setProperty('--size', '16')
+    })
+}
