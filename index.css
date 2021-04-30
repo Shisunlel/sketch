@@ -2,6 +2,9 @@
     --size: 16;
     --background: #e0e0e0;
     --foreground: #2f2f2f;
+    --red: 224;
+    --green: 224;
+    --blue: 224;
 }
 
 *,
@@ -62,18 +65,24 @@ button:hover, button:focus, button:focus-visible{
 }
 
 .grid_item{
-    background: var(--background);
+    background: rgb(var(--red), var(--green), var(--blue));
     outline: .5px solid slateblue;
 }
 
 .grid_item_too{
-    background: var(--foreground);
+    background: rgb(var(--red), var(--green), var(--blue));
 }
 
 @media(prefers-color-scheme: dark){
     body{
         --background: #2f2f2f;
         --foreground: #e0e0e0;
+    }
+
+    .grid_item{
+        --red: 47;
+        --green: 47;
+        --blue: 47;
     }
 }
 
