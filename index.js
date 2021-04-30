@@ -25,7 +25,7 @@ function addMouseOverandTouchStart() {
   const gridItem = document.querySelector(".grid_container").childNodes;
 
   gridItem.forEach((e) => {
-    ["mouseover", "touchstart"].forEach((evt) => {
+    ["mouseover", "touchend"].forEach((evt) => {
       e.addEventListener(evt, (e) => {
         e.target.classList.toggle("grid_item_too");
         e.stopPropagation();
