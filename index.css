@@ -14,6 +14,12 @@ body{
     color: var(--foreground);
 }
 
+a{
+    text-transform: uppercase;
+    text-decoration: none;
+    color: gold;
+}
+
 body{
     height: 100vh;
 }
