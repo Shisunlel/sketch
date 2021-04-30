@@ -31,10 +31,18 @@ header{
 }
 
 button{
-    padding: .5rem;
+    padding: .5rem 2rem;
+    margin: 1em;
     border: 0;
+    border-radius: 5ch;
     outline: 2px solid palegoldenrod;
     background: crimson;
+    transition: transform ease-in 500ms;
+}
+
+button:hover, button:focus, button:focus-visible{
+    filter: brightness(90%);
+    transform: scale(1.1);
 }
 
 .grid_container{
