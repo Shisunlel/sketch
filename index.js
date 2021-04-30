@@ -28,6 +28,7 @@ function addMouseOverandTouchStart() {
     ["mouseover", "touchstart"].forEach((evt) => {
       e.addEventListener(evt, (e) => {
         e.target.classList.toggle("grid_item_too");
+        e.stopPropagation();
       });
     });
   });
