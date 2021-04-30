@@ -33,7 +33,8 @@ header{
 button{
     padding: .5rem 2rem;
     margin: 1em;
-    border: 2px solid palegoldenrod;
+    border: 0;
+    box-shadow: 0 0 0 .1em palegoldenrod;
     border-radius: 5ch;
     background: crimson;
     transition: transform ease-in 500ms;
