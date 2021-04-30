@@ -33,9 +33,8 @@ header{
 button{
     padding: .5rem 2rem;
     margin: 1em;
-    border: 0;
+    border: 2px solid palegoldenrod;
     border-radius: 5ch;
-    outline: 2px solid palegoldenrod;
     background: crimson;
     transition: transform ease-in 500ms;
 }
@@ -56,9 +55,8 @@ button:hover, button:focus, button:focus-visible{
 }
 
 .grid_item{
-    outline: .1em solid palegoldenrod;
     background: var(--background);
-    outline: 2px solid slateblue;
+    outline: .5px solid slateblue;
 }
 
 .grid_item_too{

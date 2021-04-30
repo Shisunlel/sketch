@@ -1,5 +1,5 @@
 const date = document.querySelector("#date");
-date.textContent = new Date().toLocaleDateString().slice(-4);
+date.textContent = new Date().toDateString().slice(-4);
 const grid = document.querySelector(".grid_container");
 const reset = document.querySelector("#reset");
 
