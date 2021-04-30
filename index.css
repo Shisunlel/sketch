@@ -59,8 +59,8 @@ button:hover, button:focus, button:focus-visible{
     margin: 1em;
     display: grid;
     width: 100%;
-    max-width: 15em;
-    min-height: 15em;
+    max-width: 17em;
+    min-height: 17em;
     grid: repeat(var(--size), 1fr) / repeat(var(--size), 1fr);
 }
 
