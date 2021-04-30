@@ -1,60 +1,45 @@
-const wrapper = document.createElement("div");
-const header = document.createElement("h1");
-const reset = document.createElement("button");
-const sketch = document.createElement("div");
-const footer = document.createElement("footer");
-const footer_span = document.createElement("span");
-const footer_author = document.createElement("a");
-const footer_text = document.createTextNode(" - Create by ");
+const date = document.querySelector("#date");
+date.textContent = new Date().toLocaleDateString().slice(-4);
+const grid = document.querySelector(".grid_container");
+const reset = document.querySelector("#reset");
 
-const appendBody = (appendItemToSketch) => {
-  //add element to body
-  header.textContent = "Etch-a-Sketch";
-  reset.innerText = 'Reset'
-  footer_span.textContent = new Date().toLocaleDateString().slice(-4);
-  footer_author.href = "//github.com/shisunlel";
-  footer_author.innerText = "Shisun";
-  footer.append(footer_span, footer_text, footer_author);
-  wrapper.append(header, reset, sketch, footer);
-  wrapper.className = "wrapper";
-  sketch.className = "sketch";
-  appendItemToSketch();
-  document.body.append(wrapper);
-};
-
-const appendItemToSketch = () => {
+const appendItemToSketch = (opt) => {
   //get sketch custom variable thru compute style
-  const sketchSize = getComputedStyle(
+  const containerSize = getComputedStyle(
     document.documentElement
   ).getPropertyValue("--size");
 
-  let i = Math.pow(parseInt(sketchSize), 2);
+  let i = Math.pow(parseInt(containerSize), 2);
   while (i > 0) {
-    const sketchItem = document.createElement("div");
-    sketchItem.className = "item";
-    sketch.append(sketchItem);
+    const gridItem = document.createElement("div");
+    gridItem.classList = "grid_item";
+    grid.append(gridItem);
     i--;
   }
+  addMouseOverandTouchStart();
 };
 
-appendBody(appendItemToSketch);
+document.body.onload = appendItemToSketch(addMouseOverandTouchStart);
 
-const sketchItem = document.querySelector(".sketch").childNodes;
-sketchItem.forEach((e) => {
-  ["mouseover", "touchmove"].forEach((evt) => {
-    e.addEventListener(evt, (e) => {
-      setTimeout(() => {
-        e.target.classList.toggle("item_too");
-      }, 100);
+function addMouseOverandTouchStart() {
+  const gridItem = document.querySelector(".grid_container").childNodes;
+
+  gridItem.forEach((e) => {
+    ["mouseover", "touchstart"].forEach((evt) => {
+      e.addEventListener(evt, (e) => {
+        setTimeout(() => {
+          e.target.classList.toggle("grid_item_too");
+        }, 100);
+      });
     });
   });
-});
+}
 
 reset.onclick = () => {
-    sketchItem.forEach(e => {
-        if(e.classList.length > 1){
-            e.classList.remove('item_too')
-        }
-        sketch.style.setProperty('--size', '16')
-    })
-}
+  const gridItem = document.querySelector(".grid_container").childNodes;
+  Array.from(gridItem).forEach((e) => {
+    grid.removeChild(e);
+  });
+  grid.style.setProperty("--size", "16");
+  appendItemToSketch(addMouseOverandTouchStart);
+};
