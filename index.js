@@ -6,6 +6,8 @@ const containerSize = getComputedStyle(
   document.documentElement
 ).getPropertyValue("--size");
 
+document.querySelector('.wrapper').style.display = 'flex'
+
 function generateRandomColor() {
   return Math.floor(Math.random() * 256);
 }
